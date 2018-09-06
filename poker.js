@@ -63,7 +63,7 @@ overButton.onclick = function(){
     overButton.setAttribute("style", "visibility: hidden;")
     betButtons.setAttribute("style", "visibility: visible;")
 }
-
+//Function to bet 5$ 
 bet5.onclick = function(){
     if (balance >= 5){
         betBalance += 5;
@@ -75,7 +75,7 @@ bet5.onclick = function(){
         alert("You dont have that much money left.")
     }
 }
-
+//Function to bet 10$ 
 bet10.onclick = function(){
     if (balance >= 10){
         betBalance += 10;
@@ -87,7 +87,7 @@ bet10.onclick = function(){
         alert("You dont have that much money left.")
     }
 }
-
+//function to go all in with all availible $
 allIn.onclick = function(){
     if (balance >= 0){
         betBalance += balance;
@@ -99,7 +99,7 @@ allIn.onclick = function(){
         alert("You have no money left.")
     }
 }
-
+//function to reduce current bewt by 5$
 betDown5.onclick = function(){
     betBalance -= 5;
     balance +=5;
@@ -110,9 +110,9 @@ betDown5.onclick = function(){
 done.onclick = function(){
     betButtons.setAttribute("style", "visibility: hidden;")
 }
-
+//function that delineates what the deal button does
 deal.onclick = function(){
-
+    //sets dealer and player hand
     dealerHand = [];
     playerHand = [];
     dealerPoints.textContent= "";
@@ -123,6 +123,7 @@ deal.onclick = function(){
     playArray.forEach(element => {
         element.setAttribute("src", "");
     });
+    //deals intital cards
     cardD1 = dealFunc();
     dealerHand.push(cardD1.value);
     let DC1img = "JPEG/Gray_back.jpg"
@@ -155,12 +156,14 @@ deal.onclick = function(){
     }
 
 }
-
+//function for the player to draw another card
 hit.onclick = function(){
+    //checks top see if the cards have been dealt
     if(dealerHand.length== 0){
         alert("you havent even asked the dealer to deal yet...")
     }
     else{
+        //places cxards in the right position
         if(pCounter < 10){
             var cardH = dealFunc();
             playerHand.push(cardH.value);
@@ -170,6 +173,7 @@ hit.onclick = function(){
             pCounter ++;
             playerPoints.textContent= (playerHand.reduce(getSum));
         }
+        //checks for busts
         if(playerHand.reduce(getSum) > 21 ){
             if (playerHand.indexOf(11) !== -1) {
                     playerHand[playerHand.indexOf(11)] = 1;
@@ -187,12 +191,14 @@ hit.onclick = function(){
         }
     }
 }
-
+// determines the events after a player stands
 stand.onclick = function(){
+    //checks to make sure that you have dealt first
     if(dealerHand.length == 0){
         alert("you havent even asked the dealer to deal yet...")
     }
     else{
+        //places dealer cards
         let DCsimg = "JPEG/" + cardD1.name + cardD1.suit + ".jpg"
         DC1.setAttribute("src", DCsimg);
         dCounter =3;
@@ -205,6 +211,7 @@ stand.onclick = function(){
             dealerPoints.textContent= (dealerHand.reduce(getSum));
             dCounter ++;
         }
+        //checks for fdealer busts
         if(dealerHand.reduce(getSum) > 21 ){
             if (dealerHand.indexOf(11) !== -1) {
                 dealerHand[dealerHand.indexOf(11)] = 1;
@@ -221,6 +228,7 @@ stand.onclick = function(){
                 currentBet.textContent = betBalance;
             }
         }
+        // determines win, loss, or tie
         else if(dealerHand.reduce(getSum) > playerHand.reduce(getSum)){
             dealerWin();
         }
@@ -233,7 +241,7 @@ stand.onclick = function(){
     }
 
 }
-
+//hides buttons and reveals end game message
 continueButton.onclick = function(){
     popUpMessage.setAttribute("style", "visibility: hidden");
     dealArray.forEach(element => {
@@ -253,13 +261,13 @@ continueButton.onclick = function(){
         element.setAttribute("style", "height: 0px;")
     });
 }
-
+// creates cards
 function makeCard(value, name, suit){
 	this.value = value;
 	this.name = name;
 	this.suit = suit;
 }
-
+//creates careds and puts them into an array deck
 function makeDeck(){
     this.names = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     this.suits = ['H','D','S','C'];
@@ -281,7 +289,7 @@ function makeDeck(){
 
     return cards;
 }
-
+// mixes the deck array
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     
@@ -300,7 +308,7 @@ function shuffle(array) {
     
     return array;
 }
-
+// function to draw a card
 function dealFunc(){
     if(deck.length == 0){
         deck = shuffle(makeDeck());
@@ -311,7 +319,7 @@ function dealFunc(){
 function getSum(total, num) {
     return total + num;
 }
-
+// shows message for the player winning
 function playerWin(){
     playerWinCounter ++;
     playerWins.textContent= (playerWinCounter);
@@ -322,7 +330,7 @@ function playerWin(){
     cash.textContent = balance;
     currentBet.textContent = betBalance;
 }
-
+// shows message for the dealer winning
 function dealerWin(){
     dealerWinCounter ++;
     dealerWins.textContent= (dealerWinCounter);
@@ -332,7 +340,7 @@ function dealerWin(){
     cash.textContent = balance;
     currentBet.textContent = betBalance;
 }
-
+// shows message for a tie
 function tie(){
     popUpImage.setAttribute("src", "https://media1.giphy.com/media/143SWpDkGbQkus/giphy.gif");
     popUpMessage.setAttribute("style", "visibility: visible;");
