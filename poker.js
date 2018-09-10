@@ -210,6 +210,10 @@ stand.onclick = function(){
         DC1.setAttribute("src", DCsimg);
         dCounter =3;
         while(dealerHand.reduce(getSum) < 17){
+            if (dealerHand.indexOf(11) !== -1) {
+                dealerHand[dealerHand.indexOf(11)] = 1;
+                dealerPoints.textContent= (dealerHand.reduce(getSum));
+            }
             var cardS = dealFunc();
             dealerHand.push(cardS.value);
             let Simg = "JPEG/" + cardS.name + cardS.suit + ".jpg"
@@ -220,11 +224,6 @@ stand.onclick = function(){
         }
         //checks for dealer busts
         if(dealerHand.reduce(getSum) > 21 ){
-            if (dealerHand.indexOf(11) !== -1) {
-                dealerHand[dealerHand.indexOf(11)] = 1;
-                dealerPoints.textContent= (dealerHand.reduce(getSum));
-            }
-            else{
                 popUpImage.setAttribute("src", "https://media0.giphy.com/media/3orif9LivxKZv58qWs/giphy.gif");
                 popUpMessage.setAttribute("style", "visibility: visible;");
                 playerWinCounter ++;
@@ -233,7 +232,7 @@ stand.onclick = function(){
                 betBalance = 0;
                 cash.textContent = balance;
                 currentBet.textContent = betBalance;
-            }
+            
         }
         // determines win, loss, or tie
         else if(dealerHand.reduce(getSum) > playerHand.reduce(getSum)){
