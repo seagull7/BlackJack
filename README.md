@@ -1,27 +1,22 @@
-# BlackJack
-World Stat Book
-Visit our webpage at www.worldstatbook.com
-Description
-This responsive web application allows users to search any country or territory by name and get information on them. Through a fan-made FBI World Factbook API and Chart.js, we were able to take in all the statistics on things like age structure, religion, ethnic group and GDP, and chart them on multiple types of graphs. This application also allows users to view the flag and the capital city of the searched country by utilizing the google maps API.
-Technologies Used
-HTML5
-CSS3
-JavaScript
-jQuery
-Chart.js
-World Factbook API
-Google Maps API
-Git
-Login Page
+<h1>Black Jack</h1>
+Play the game at seagull7.github.io
 
-People and Society
 
-Government
+<h2>Description</h2>
+This browser based game allows the user to play the classic card game, BlackJack (or 21). The game allows the user to play against a dealer and encompases all of the basics of the game including bets, hits, chips, and win counts.
 
-Economy
-Authors
-Duong, Jeff
-Pittman, Keith
-Siegel, Sam
-Acknowledgments
-We would like to thank Veronica Lino and our TA, Matthew Baxter. Also, we'd like to thank The World Factbook API and Google Maps for their contributions. 
+<h2>Technologies Used</h2>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript</li>
+<li>jQuery</li>
+
+<h4>Login Page</h4>
+<img src="./BJ/BJ1.png">
+
+<h4>People and Society</h4>
+<img src="./BJ/BJ2.png">
+
+<h4>Government</h4>
+<img src="./BJ/BJ3.png">
+
