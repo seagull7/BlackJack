@@ -11,12 +11,12 @@ This browser based game allows the user to play the classic card game, BlackJack
 <li>JavaScript</li>
 <li>jQuery</li>
 
-<h4>Login Page</h4>
+<h4>Basic Table:</h4>
 <img src="./BJ1.png">
 
-<h4>People and Society</h4>
+<h4>Cards Dealt:</h4>
 <img src="./BJ2.png">
 
-<h4>Government</h4>
+<h4>The House ALways Wins in The End:</h4>
 <img src="./BJ3.png">
 
